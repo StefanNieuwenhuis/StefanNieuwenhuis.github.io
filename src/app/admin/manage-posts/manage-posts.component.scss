@@ -1,0 +1,20 @@
+.post-editor,
+.post-preview {
+  height: 50vh;
+}
+
+.post-editor {
+  resize: none;
+  overflow: auto;
+}
+
+
+.post-image {
+  margin-bottom: 1em;
+  border-radius: 5px;
+
+}
+
+.ng-valid[required]{
+  border-left: 5px solid red;
+}

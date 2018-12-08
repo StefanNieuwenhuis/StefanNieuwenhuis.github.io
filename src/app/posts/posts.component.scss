@@ -1,0 +1,17 @@
+@import '../../scss/settings/colors';
+@import '../../scss/components/titles';
+
+.post {
+  margin-bottom: 50px;
+
+  &-image {
+    margin-bottom: 1em;
+    border-radius: 5px;
+
+  }
+}
+
+.post:not(:last-child){
+  padding-bottom: 50px;
+  border-bottom: 1px solid #eee;
+}

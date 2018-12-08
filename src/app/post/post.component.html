@@ -1,0 +1,19 @@
+<section *ngIf="post; else loadingPost">
+  <div class="row">
+    <div class="col-12">
+      <!-- Post -->
+      <div class="post">
+        <img *ngIf="post.image" class="img-fluid post-image" src="{{post?.image?.src}}" alt="{{post?.image?.alt}}"/>
+        <h2>{{post?.title}}</h2>
+        <div class="font-weight-light">{{post?.publishDate.toDate() | date}} by {{post?.author?.name}}</div>
+        <p innerHtml="{{post?.body}}"></p>
+      </div>
+      <!-- // Post -->
+      <button class="btn btn-primary btn-sm" routerLink="/posts">back to posts</button>
+    </div>
+  </div>
+</section>
+
+<ng-template #loadingPost>
+  <app-spinner [message]="'Loading post'"></app-spinner>
+</ng-template>

@@ -1,0 +1,40 @@
+<section *ngIf="posts; else loadingPosts">
+  <div class="row">
+    <div class="col-12">
+      <!-- Post -->
+      <div class="post" *ngFor="let post of slicedPosts">
+        <img *ngIf="post.image" class="img-fluid post-image" src="{{post?.image?.src}}" alt="{{post?.image?.alt}}"/>
+        <h2>{{post?.title}}</h2>
+        <div class="font-weight-light">{{post?.publishDate.toDate() | date}} by {{post?.author?.name}}</div>
+        <p innerHtml="{{post?.body | firstSentence}}"></p>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/post', post.id]">read more</a>
+      </div>
+      <!-- // Post -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="setPage(1)">first</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="setPage(currentPage - 1)">previous</a>
+        </li>
+        <li class="page-item" [class.active]="currentPage === page" *ngFor="let page of pages">
+          <a class="page-link" (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalNumberOfPages">
+          <a class="page-link" (click)="setPage(currentPage + 1)">next</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalNumberOfPages">
+          <a class="page-link" (click)="setPage(totalNumberOfPages)">last</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<ng-template #loadingPosts>
+  <app-spinner [message]="'Loading posts'"></app-spinner>
+</ng-template>
