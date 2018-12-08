@@ -1,0 +1,9 @@
+.profile-picture {
+  width: 15rem;
+  border-radius: 5px;
+
+  @media(max-width: 576px) {
+    width: 100%;
+    order: -1;
+  }
+}
