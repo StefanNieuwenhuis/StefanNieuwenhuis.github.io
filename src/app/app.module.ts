@@ -15,7 +15,7 @@ import {LoginModule} from './login/login.module';
 import {AdminModule} from './admin/admin.module';
 import {PostsModule} from './posts/posts.module';
 import {AboutModule} from './about/about.module';
-import { FirstSentencePipe } from './shared/pipes/first-sentence.pipe';
+import {Angulartics2Module} from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { FirstSentencePipe } from './shared/pipes/first-sentence.pipe';
     AngularFireAuthModule,
     AppRoutingModule,
     HttpClientModule,
+    Angulartics2Module.forRoot(),
     AdminModule,
     LoginModule,
     CoreModule,
