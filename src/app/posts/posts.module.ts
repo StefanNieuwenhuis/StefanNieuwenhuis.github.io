@@ -5,6 +5,7 @@ import {PostsComponent} from './posts.component';
 import {PostsService} from '../shared/services/posts.service';
 import {SpinnerModule} from '../shared/components/spinner/spinner.module';
 import {FirstSentencePipe} from '../shared/pipes/first-sentence.pipe';
+import {groupBy} from 'lodash';
 
 @NgModule({
   imports: [

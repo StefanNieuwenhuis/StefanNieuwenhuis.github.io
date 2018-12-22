@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpEvent, HttpRequest, HttpResponse } from '@angular/common/http';
 import { UrlHandler } from './url-handler';
 import { PostGenerator } from '../generators/post-generator';
-import { Post } from './../../models/post';
+import { Post } from '../../models/post';
 
 export class PostsHandler implements UrlHandler {
     handle(request: HttpRequest<any>): Observable<HttpEvent<any>> {

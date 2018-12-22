@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Post} from '../shared/models/post';
-import {PostsService} from '../shared/services/posts.service';
+import { Component, OnInit } from '@angular/core';
+import { Post } from '../shared/models/post';
+import { PostsService } from '../shared/services/posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -36,7 +36,11 @@ export class PostsComponent implements OnInit {
 
   private getAllPosts() {
     this.postsService.getAllPosts().subscribe((posts: Post[]) => {
+      const sortBy = (key) => {
+        return (a, b) => (a[key] > b[key]) ? ((b[key] > a[key]) ? 0 : -1) : 1;
+      };
       this.posts = posts;
+      posts.sort(sortBy('publishDate'));
       this.calculateNumberOfPages();
       this.slicePostsIntoPages();
     }, err => console.error('dang!'));
@@ -45,7 +49,7 @@ export class PostsComponent implements OnInit {
   private calculateNumberOfPages() {
     this.totalNumberOfPages = Math.ceil(this.posts.length / this.POSTS_PER_PAGE);
     this.setPage(parseInt(localStorage.getItem('currentPage'), 10) || 1);
-    this.pages = Array.from({length: this.totalNumberOfPages}, (_, i) => i + 1);
+    this.pages = Array.from({ length: this.totalNumberOfPages }, (_, i) => i + 1);
   }
 
   private slicePostsIntoPages() {

@@ -1,6 +1,4 @@
-import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './shared/guards/auth.guard';
-import {AdminComponent} from './admin/admin.component';
 import {PostsComponent} from './posts/posts.component';
 import {AboutComponent} from './about/about.component';
 import {NgModule} from '@angular/core';
@@ -15,12 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'login',
-    component: LoginComponent
+    loadChildren: './admin/admin.module#AdminModule',
+    canLoad: [AuthGuard]
   },
   {
     path: 'about',

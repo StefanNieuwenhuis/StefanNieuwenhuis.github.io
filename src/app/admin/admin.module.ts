@@ -1,18 +1,25 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {AdminComponent} from './admin.component';
-import {SpinnerModule} from '../shared/components/spinner/spinner.module';
-import {ManagePostsComponent} from './manage-posts/manage-posts.component';
-import {FormsModule} from '@angular/forms';
+import { SpinnerModule } from './../shared/components/spinner/spinner.module';
+
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    SpinnerModule,
-    FormsModule
+    FormsModule,
+    AdminRoutingModule,
+    AngularEditorModule,
+    SpinnerModule
   ],
-  exports: [AdminComponent],
-  declarations: [AdminComponent, ManagePostsComponent]
+  declarations: [AdminDashboardComponent, AdminComponent, EditPostComponent, NewPostComponent]
 })
-export class AdminModule {
-}
+export class AdminModule { }

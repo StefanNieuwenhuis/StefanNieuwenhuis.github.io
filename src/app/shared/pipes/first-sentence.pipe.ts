@@ -6,8 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FirstSentencePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    const pattern = new RegExp(/.*?(\.)(?=\s[A-Z])/);
-    return pattern.exec(value)[0];
+    const pattern = new RegExp(/^.*?(?=(<span class=\"excerpt\"\>))/);
+    const result = pattern.exec(value);
+    return result !== null && result.length > 0 ? result[0] : value;
   }
 
 }

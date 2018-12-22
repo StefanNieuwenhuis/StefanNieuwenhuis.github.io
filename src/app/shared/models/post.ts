@@ -1,13 +1,9 @@
 import { Author } from './author';
+
 export interface Post {
+    id?: string;
     title: string;
     body: string;
-    publishDate: string;
+    publishDate: Date;
     author: Author;
-    image?: Image;
-}
-
-export interface Image {
-    src: string;
-    alt: string;
 }
