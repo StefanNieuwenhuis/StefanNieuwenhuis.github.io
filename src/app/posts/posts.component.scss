@@ -1,0 +1,11 @@
+@import '../../scss/settings/colors';
+@import '../../scss/components/titles';
+
+.post {
+  margin-bottom: 50px;
+}
+
+.post:not(:last-child) {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #eee;
+}
