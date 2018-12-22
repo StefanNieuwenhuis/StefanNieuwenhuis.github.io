@@ -6,10 +6,11 @@
     "start": "ng serve --aot --prod=false --sourceMap=true",
     "analyze": "webpack-bundle-analyzer docs/stats.json",
     "build": "ng build",
-    "build:publish": "ng build --prod --aot --base-href /StefanNieuwenhuis.github.io/",
+    "build:publish": "ng build --prod --aot --base-href https://StefanNieuwenhuis.github.io/StefanNieuwenhuis.github.io/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ngh": "yarn build:publish && npx angular-cli-ghpages"
   },
   "private": true,
   "dependencies": {
